@@ -1,0 +1,70 @@
+@import "../../assets/styles/variables";
+
+body {
+  background-color: hsl(0, 0%, 24%);
+  margin: unset;
+}
+
+p, li, h1, h2, h3, h4, label {
+  color: hsl(0, 0%, 90%);
+}
+a {
+  color: $colour-ubuntu-orange-40;
+}
+
+pre, code {
+  font-family: 'Ubuntu Mono',sans-serif;
+  background-color: hsl(0, 0%, 30%);
+}
+
+code {
+  padding: 0 3px 1px 3px;
+  border-radius: 5px;
+}
+
+table {
+  border-collapse: collapse;
+  width: 15rem;
+  color: hsl(0, 0%, 90%);
+
+  th, td, caption {
+    border: 1px solid hsl(0, 0%, 40%);
+    padding: 0.5rem;
+    text-align: center;
+  }
+  caption {
+    border-bottom: none;
+    font-weight: bold;
+  }
+}
+
+textarea {
+  color: $colour-white;
+  background-color: $colour-cool-grey;
+  font-size: 0.95rem;
+  padding: 0.5rem 0.9rem;
+  border-radius: 0.3rem;
+  border: 1px solid $colour-neutral-border;
+
+  &:focus {
+    outline: 2px solid $colour-ubuntu-orange-70;
+  }
+}
+
+.code {
+  color: hsl(0, 0%, 90%);
+  padding: 10px;
+  border: 2px solid $colour-ubuntu-orange-60;
+  border-radius: 5px;
+  width: fit-content;
+  max-width: -webkit-fill-available;
+  max-width: -moz-available;
+  overflow-x: auto;
+}
+
+@media (max-width: $screen-width-small) {
+  .code {
+    width: -webkit-fill-available;
+    width: -moz-available;
+  }
+}

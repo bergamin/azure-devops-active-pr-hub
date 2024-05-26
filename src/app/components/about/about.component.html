@@ -1,0 +1,50 @@
+<h1>Active Pull Requests Hub - {{version}}</h1>
+
+<p>
+  Esta aplicação visa facilitar o gerenciamento dos pull requests ativos no Azure DevOps.
+</p>
+
+<h3>
+  Configuração
+</h3>
+
+<p>
+  Preencher o PAT com um token gerado no Azure DevOps. Pode ser um token só com permissões de leitura.
+  Por motivos de segurança, o PAT salvo não é apresentado no campo após o salvamento.
+  Ao alterar outras configurações mantendo o PAT em branco, irá manter o PAT que já estava salvo anteriormente sem alterações.
+</p>
+<p>
+  A lista de repositórios aceita tanto o nome do repositório (e.g. <code>ws-exemplo</code>), quanto o <code>id</code> do repositório (e.g. <code>9fd49287-ee78-4f67-bfe5-d6a3b914805e</code>).
+  Desta forma, pode-se também utilizar neste filtro os repositórios da forma como são salvos no plugin Pull Request Manager Hub do Azure DevOps.
+  Esta lista é separada por vírgulas e é sanitizada no momento do salvamento, removendo caracteres brancos e <code>"</code> que pode estar vindo de backup do plugin do Azure DevOps.
+</p>
+<p>
+  Caso o filtro de repositórios não for preenchido, serão mostrados todos os PRs abertos.
+</p>
+<p>
+  Pode-se exportar as configurações para um arquivo json para utilizar como backup.
+  Porém, a exportação não salvará e a importação não substituirá o PAT.
+</p>
+<p>
+  Caso o avatar do autor dos PRs não for apresentado, isso indica que o usuário não está logado no Azure DevOps.
+  Para esta funcionalidade funcionar corretamente, deve-se utilizar o mesmo navegador onde se trabalha com o Azure DevOps.
+</p>
+
+<h3>
+  Release Notes
+</h3>
+
+<h4>
+  1.0.0
+</h4>
+<ul>
+  <li>
+    Lista de PRs ativos
+  </li>
+  <li>
+    Filtro global por repositórios
+  </li>
+  <li>
+    Importação / Exportação de configurações
+  </li>
+</ul>

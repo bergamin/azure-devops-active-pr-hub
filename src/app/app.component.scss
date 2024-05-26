@@ -1,0 +1,52 @@
+.showcase-toolbar {
+  text-align: center;
+  flex: 1;
+
+  .showcase-toolbar-title {
+    font-size: 0.9rem;
+    font-weight: bold;
+  }
+  .showcase-toolbar-subtitle {
+    color: hsl(0, 0%, 61%);
+    font-size: 0.8rem;
+    display: block;
+  }
+}
+.showcase-toolbar-button {
+  margin: 0.3rem;
+  fill: white;
+  padding: 0.5rem 0.6rem;
+}
+.showcase-body {
+  overflow-y: auto;
+  padding: 0.5rem;
+  flex: 1;
+}
+input {
+  display: block;
+}
+
+.box {
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+}
+.box .row.header {
+  flex: 0 1 auto;
+}
+.box .row.content {
+  display: flex;
+  flex-flow: column;
+  flex: 1 1 auto;
+  overflow-y: auto;
+}
+.showcase-search {
+  flex: 1;
+  width: 100%;
+  transition: background-color 200ms linear, border 200ms linear;
+
+  &.hidden {
+    background-color: hsl(0, 0%, 17%);
+    border-color: hsl(0, 0%, 17%);
+  }
+}

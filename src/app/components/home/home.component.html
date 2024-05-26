@@ -1,0 +1,88 @@
+<table class="showcase-table">
+  <caption>
+    <div style="flex: 0 1 auto; display: flex">
+      <button gnui-button kind="neutral"
+              class="round-button reload"
+              icon="process-working"
+              (click)="updatePRList()"
+      >
+      </button>
+      <div style="flex: 1; text-align: center; align-self: center">
+        Pull Requests
+      </div>
+    </div>
+  </caption>
+  <tr>
+    <th rowspan="2"> ID </th>
+    <th rowspan="2"> Type </th>
+    <th colspan="3"> Status </th>
+    <th rowspan="2"> Author </th>
+    <th rowspan="2"> Reviewers </th>
+    <th rowspan="2"> Title </th>
+    <th rowspan="2"> Repository </th>
+    <th rowspan="2"> Source Branch </th>
+    <th rowspan="2"> Target Branch </th>
+    <th rowspan="2"> Labels </th>
+    <th rowspan="2"> Creation Date </th>
+  </tr>
+  <tr>
+    <th>Stage</th>
+    <th>Merge</th>
+    <th>Review</th>
+  </tr>
+  <tr *ngFor="let pr of pullRequests" class="neutral"
+      [class.positive]="pr.generalStatus === 'positive'"
+      [class.warning]="pr.generalStatus === 'warning'"
+      [class.negative]="pr.generalStatus === 'negative'"
+      [class.draft]="pr.generalStatus === 'draft'"
+  >
+    <td><a target="_blank" href="{{azureDevOpsBaseUrl}}/_git/{{pr.repository.name}}/pullrequest/{{pr.pullRequestId}}">
+      !{{ pr.pullRequestId }}
+    </a></td>
+    <td
+      [class.negative]="pr.type === 'bugfix' && pr.generalStatus === 'neutral'"
+      [class.positive]="pr.type === 'release' && pr.generalStatus === 'neutral'"
+    >
+      <div class="type">
+        <span>{{ toTitleCase(pr.type) }}</span>
+        <span *ngIf="!pr.isTargetValid">
+          Wrong Target
+        </span>
+      </div>
+    </td>
+    <td> {{ toTitleCase(pr.isDraft ? 'draft' : pr.status) }} </td>
+    <td> {{ toTitleCase(pr.mergeStatus) }} </td>
+    <td> {{ toTitleCase(pr.reviewStatus) }} </td>
+    <td>
+      <img style="border-radius: 50%; border: 2px solid hsl(0, 0%, 24%); height: 48px; width: 48px"
+           alt="{{pr.createdBy.displayName}}'s avatar"
+           [src]="pr.createdBy.imageUrl"
+           [title]="pr.createdBy.displayName">
+    </td>
+    <td><div *ngFor="let reviewer of pr.reviewers"
+             class="reviewer"
+             [class.approved]="reviewer.vote === 10"
+             [class.suggestions]="reviewer.vote === 5"
+             [class.waiting]="reviewer.vote === -5"
+             [class.rejected]="reviewer.vote === -10"
+             [title]="getReviewStatus(reviewer)"
+    >
+      <gnui-icon *ngIf="reviewer.isRequired"
+                 name="dialog-warning"
+                 title="required"
+                 style="fill: hsl(0, 0%, 90%); margin-right: 5px"
+      ></gnui-icon>
+      <span>{{ reviewer.displayName }}</span>
+    </div></td>
+    <td> {{ pr.title }} </td>
+    <td style="white-space: nowrap">
+      {{ pr.repository.name }}
+    </td>
+    <td> {{ pr.sourceRefName.replace('refs/heads/', '') }} </td>
+    <td> {{ pr.targetRefName.replace('refs/heads/', '') }} </td>
+    <td><div *ngFor="let label of pr.labels" class="label">
+      {{ label.name }}
+    </div></td>
+    <td> {{ pr.creationDate }} </td>
+  </tr>
+</table>

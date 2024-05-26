@@ -75,7 +75,10 @@
               "browserTarget": "azure-devops-active-pr-hub:build:development"
             }
           },
-          "defaultConfiguration": "development"
+          "defaultConfiguration": "development",
+          "options": {
+            "port": 4201
+          }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
@@ -103,5 +106,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "ece9bedd-cfe6-431f-8639-1978e446f7f8"
   }
 }

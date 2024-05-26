@@ -3,16 +3,31 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { GnuiModule } from "./modules/gnui.module";
+import { AboutComponent } from './components/about/about.component';
+import { HomeComponent } from './components/home/home.component';
+import { SettingsComponent } from './components/settings/settings.component';
+import { HttpClientModule } from "@angular/common/http";
+import { FormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AboutComponent,
+    HomeComponent,
+    SettingsComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    GnuiModule,
+    HttpClientModule,
+    FormsModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+  ],
+  bootstrap: [
+    AppComponent,
+  ],
 })
 export class AppModule { }

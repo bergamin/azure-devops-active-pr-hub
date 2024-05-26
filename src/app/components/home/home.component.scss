@@ -1,0 +1,143 @@
+@import "../../../assets/styles/variables";
+
+$colour-positive: hsl(129, 80%, 24%);
+$colour-positive-light: hsl(129, 80%, 28%);
+$colour-positive-dark: hsl(129, 80%, 15%);
+$colour-positive-border: hsl(129, 80%, 13%);
+
+$colour-negative: hsl(353, 80%, 33%);
+$colour-negative-light: hsl(353, 80%, 37%);
+$colour-negative-dark: hsl(353, 80%, 24%);
+$colour-negative-border: hsl(353, 80%, 22%);
+
+$colour-ubuntu-orange-100: hsl(16, 82%, 52%);
+$colour-ubuntu-orange-90: hsl(16, 82%, 57%);
+$colour-ubuntu-orange-80: hsl(15, 82%, 62%);
+
+$colour-aubergine-mid-100: hsl(315, 41%, 26%);
+$colour-aubergine-mid-90: hsl(316, 29%, 33%);
+$colour-aubergine-mid-80: hsl(315, 21%, 41%);
+
+$colour-canonical-aubergine-100: hsl(328, 49%, 31%);
+$colour-canonical-aubergine-90: hsl(327, 36%, 38%);
+$colour-canonical-aubergine-80: hsl(328, 28%, 45%);
+
+tr, td {
+  &.positive {
+    background-color: $colour-positive;
+    border-color: $colour-positive-border;
+  }
+
+  &.warning {
+    background-color: $colour-ubuntu-orange-90;
+    border-color: hsl(16, 76%, 35%);
+  }
+
+  &.negative {
+    background-color: $colour-negative;
+    border-color: $colour-negative-border;
+  }
+
+  &.draft {
+    background-color: hsl(213, 99%, 29%);
+    border-color: hsl(213, 98%, 17%);
+  }
+}
+
+tr {
+  &.neutral {
+    &:hover {
+      background-color: hsl(0, 0%, 30%);
+    }
+  }
+
+  &.positive {
+    &:hover {
+      background-color: $colour-positive-light;
+    }
+  }
+
+  &.warning {
+    &:hover {
+      background-color: $colour-ubuntu-orange-80;
+    }
+  }
+
+  &.negative {
+    &:hover {
+      background-color: $colour-negative-light;
+    }
+  }
+
+  &.draft {
+    &:hover {
+      background-color: hsl(213, 98%, 32%);
+    }
+  }
+}
+
+td {
+  border-color: inherit;
+}
+
+table {
+  min-width: -webkit-fill-available;
+  min-width: -moz-available;
+}
+
+.label, .reviewer {
+  margin: 5px;
+  padding: 5px;
+  border-radius: 5px;
+  white-space: nowrap;
+  border: 2px solid hsl(0, 0%, 24%);
+  background-color: hsl(0, 0%, 30%);
+}
+
+.reviewer {
+  display: flex;
+  justify-content: center;
+
+  &.approved, &.suggestions {
+    background-color: $colour-positive;
+  }
+  &.waiting {
+    background-color: $colour-ubuntu-orange-90;
+  }
+  &.rejected {
+    background-color: $colour-negative;
+  }
+  &.suggestions {
+    border-style: dashed;
+  }
+}
+
+.type {
+  white-space: nowrap;
+  display: grid;
+  grid-auto-flow: row;
+  grid-row-gap: 0.5rem;
+
+}
+
+.square-button, .round-button {
+  height: 38px;
+  width: 38px;
+  padding: 0.5rem 0.6rem;
+}
+
+.round-button {
+  border-radius: 50%;
+
+  &.reload:hover {
+    transition: transform 1s;
+    transform: rotate(240deg);
+  }
+}
+
+@media (max-width: $screen-width-small) {
+  .showcase-table {
+    width: -webkit-fill-available;
+    width: -moz-available;
+  }
+}

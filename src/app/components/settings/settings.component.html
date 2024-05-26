@@ -1,0 +1,51 @@
+<label>Organization</label>
+<input gnui-input type="text"
+       placeholder="Your organization ID"
+       [(ngModel)]="organization"
+>
+<label>Project</label>
+<input gnui-input type="text"
+       placeholder="Your project ID"
+       [(ngModel)]="project"
+>
+<label>PAT</label>
+<input gnui-input type="text"
+       [placeholder]="settings.base64pat ? 'Unchanged' : 'Personal Access Token'"
+       [(ngModel)]="pat"
+>
+
+<label>Repositories</label>
+<textarea
+  placeholder="Comma separated list of repository names or ids"
+  [(ngModel)]="repositories"
+></textarea>
+
+<div>
+  <button gnui-button
+          kind="positive"
+          (click)="save()"
+  >
+    Save
+  </button>
+  <button gnui-button
+          kind="negative"
+          (click)="reset()"
+  >
+    Reset
+  </button>
+  <button gnui-button
+          (click)="export()"
+  >
+    Export
+  </button>
+  <input #importFile type="file"
+         [accept]="'.json'"
+         (change)="import($event)"
+         hidden
+  >
+  <button gnui-button
+          (click)="importFile.click()"
+  >
+    Import
+  </button>
+</div>

@@ -1,0 +1,19 @@
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+textarea {
+  width: -webkit-fill-available;
+  width: -moz-available;
+  height: 8rem;
+  margin-bottom: 10px;
+}
+input {
+  width: 425px;
+  max-width: -webkit-fill-available;
+  max-width: -moz-available;
+  margin-bottom: 10px;
+}
+button {
+  margin-right: 10px;
+}
