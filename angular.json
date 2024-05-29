@@ -30,7 +30,8 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [],
+            "baseHref": "https://bergamin.github.io/azure-devops-active-pr-hub/"
           },
           "configurations": {
             "production": {
